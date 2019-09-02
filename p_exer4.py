@@ -1,19 +1,22 @@
 class p_exer4():
     def __init__(self):
         self.items=[]
+        self.subs=['OOP','APPDEV', 'PE3', 'SOFTENG', 'NET1', 'MAEL2', 'DISTRU2', 'RPH']
     def push (self,item):
         self.items.insert(0,item)
     def remove(self):
         self.items.remove(enrolled)
     def isEmpty (self):
         return self.items==[]
+     
+
     
 n=p_exer4()
 name =str(input("Enter your name: "))
 print('---------------------------------')
 print("Welcome",name)
 print('Current Units Enrolled:',len(n.items)*3)
-
+#print(n.subs)
 while True:
     if len(n.items)*3<24:
                 
@@ -26,14 +29,17 @@ while True:
 
             if choice == 1: #ADD
                 add = str(input('ADD SUBJECT: ')).upper() 
-                if add in n.items:
-                        print(add,'is already enrolled') 
+                if add in n.subs:
+                    if add not in n.items:
+                        n.push(add)
+                        print('Subject Succesfull Added!!')
+                        print('Current Units Enrolled:',len(n.items)*3)
+                    else:
+                        print("already enrolled") 
+                                           
                         
                 else:
-                    n.push(add)
-                    print('Subject Succesfull Added!!')
-                    print('Current Units Enrolled:',len(n.items)*3)
-            
+                    print('not in list of subs for 2nd yr 1st sem' ) 
             elif choice == 2: #DROP
                 if n.isEmpty():
                         print("------No Enrolled Subjects------")
@@ -85,4 +91,3 @@ while True:
         print("You have exceeded the number of units to be enrolled")
         break
         
-# Lance Denzel Razon
