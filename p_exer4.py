@@ -1,16 +1,14 @@
 class p_exer4():
     def __init__(self):
         self.items=[]
-        self.subs=['OOP','APPDEV', 'PE3', 'SOFTENG', 'NET1', 'MAEL2', 'DISTRU2', 'RPH']
+        self.subs=['OOP','APPDEV', 'PE3', 'SOFTENG', 'NET1', 'MAEL2', 'DISTRU2', 'READPHILHIS']
     def push (self,item):
         self.items.insert(0,item)
     def remove(self):
         self.items.remove(enrolled)
     def isEmpty (self):
         return self.items==[]
-     
-
-    
+  
 n=p_exer4()
 name =str(input("Enter your name: "))
 print('---------------------------------')
@@ -19,7 +17,7 @@ print('Current Units Enrolled:',len(n.items)*3)
 #print(n.subs)
 while True:
     if len(n.items)*3<24:
-                
+        try:                
             print('---------------------------------')
             print("MAIN CHOICES\n")
             print("[1]ADD SUBJECT\n[2]DROP SUBJECT\n[3]PRINT\n[4]EXIT")
@@ -28,6 +26,10 @@ while True:
             choice =int(input("Enter your choice: "))
 
             if choice == 1: #ADD
+                print('----List of Subjects For 2nd Yr 1st Sem----')                
+                for x in n.subs:
+                    print('|\t',x)
+                print('------------------------------------------')
                 add = str(input('ADD SUBJECT: ')).upper() 
                 if add in n.subs:
                     if add not in n.items:
@@ -36,8 +38,7 @@ while True:
                         print('Current Units Enrolled:',len(n.items)*3)
                     else:
                         print("already enrolled") 
-                                           
-                        
+                                                                  
                 else:
                     print('not in list of subs for 2nd yr 1st sem' ) 
             elif choice == 2: #DROP
@@ -60,8 +61,6 @@ while True:
                     n.items.pop(enrolled-1)
                     print('Current Units Enrolled:',len(n.items)*3)
                 
-
-
             elif choice == 3: #PRINT
                 if n.isEmpty():
                     print("------No Enrolled Subjects------")
@@ -86,8 +85,19 @@ while True:
                 
             else:
                 print("---- Invalid Input ----\n")
+        except IndexError:
+            print("*** Invalid Input Try Again ***")
+            continue
+        except ValueError:
+            print("*** Invalid Input Try Again ***")
+            continue
+            
     else:
         print('---------------------------------')
         print("You have exceeded the number of units to be enrolled")
         break
-        
+
+    #LANCE DENZEL RAZON
+    #BSCS-201
+    #7OOP
+    #09-03-19
